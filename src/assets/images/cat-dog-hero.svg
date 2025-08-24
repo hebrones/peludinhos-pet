@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E6E6FA;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#DDA0DD;stop-opacity:0.6" />
+    </linearGradient>
+    <radialGradient id="cat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#C0C0C0;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#A9A9A9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#808080;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="dog" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#DEB887;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#D2B48C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BC9A6A;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  
+  <!-- Cat silhouette -->
+  <g transform="translate(300, 180)">
+    <!-- Head -->
+    <ellipse cx="0" cy="0" rx="60" ry="55" fill="url(#cat)" opacity="0.8"/>
+    <!-- Ears -->
+    <polygon points="-35,-45 -20,-70 -10,-45" fill="url(#cat)" opacity="0.8"/>
+    <polygon points="10,-45 20,-70 35,-45" fill="url(#cat)" opacity="0.8"/>
+    <!-- Eyes -->
+    <ellipse cx="-20" cy="-10" rx="8" ry="12" fill="#32CD32" opacity="0.9"/>
+    <ellipse cx="20" cy="-10" rx="8" ry="12" fill="#32CD32" opacity="0.9"/>
+    <!-- Nose -->
+    <polygon points="0,5 -5,15 5,15" fill="#FF69B4" opacity="0.9"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="100" rx="45" ry="70" fill="url(#cat)" opacity="0.7"/>
+    <!-- Tail -->
+    <path d="M -40 120 Q -80 100 -90 60 Q -85 40 -70 50" stroke="url(#cat)" stroke-width="15" fill="none" opacity="0.7"/>
+  </g>
+  
+  <!-- Dog silhouette -->
+  <g transform="translate(520, 200)">
+    <!-- Head -->
+    <ellipse cx="0" cy="0" rx="70" ry="60" fill="url(#dog)" opacity="0.8"/>
+    <!-- Ears -->
+    <ellipse cx="-45" cy="-35" rx="20" ry="40" fill="url(#dog)" opacity="0.7" transform="rotate(-15)"/>
+    <ellipse cx="45" cy="-35" rx="20" ry="40" fill="url(#dog)" opacity="0.7" transform="rotate(15)"/>
+    <!-- Eyes -->
+    <circle cx="-22" cy="-12" r="7" fill="#2F4F4F" opacity="0.9"/>
+    <circle cx="22" cy="-12" r="7" fill="#2F4F4F" opacity="0.9"/>
+    <!-- Nose -->
+    <ellipse cx="0" cy="8" rx="7" ry="5" fill="#2F4F4F" opacity="0.9"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="110" rx="55" ry="75" fill="url(#dog)" opacity="0.7"/>
+    <!-- Tail -->
+    <path d="M 50 130 Q 80 110 85 80" stroke="url(#dog)" stroke-width="12" fill="none" opacity="0.7"/>
+  </g>
+  
+  <!-- Heart between them -->
+  <g transform="translate(400, 250)" opacity="0.6">
+    <path d="M 0,10 C -10,0 -20,0 -20,10 C -20,20 0,35 0,35 C 0,35 20,20 20,10 C 20,0 10,0 0,10 Z" fill="#FF69B4"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <g opacity="0.3">
+    <!-- Paw prints -->
+    <g transform="translate(150, 400)">
+      <circle cx="0" cy="0" r="6" fill="#696969"/>
+      <circle cx="-8" cy="-12" r="4" fill="#696969"/>
+      <circle cx="8" cy="-12" r="4" fill="#696969"/>
+      <circle cx="-6" cy="-20" r="3" fill="#696969"/>
+      <circle cx="6" cy="-20" r="3" fill="#696969"/>
+    </g>
+    <g transform="translate(650, 450)">
+      <circle cx="0" cy="0" r="7" fill="#D2B48C"/>
+      <circle cx="-9" cy="-14" r="5" fill="#D2B48C"/>
+      <circle cx="9" cy="-14" r="5" fill="#D2B48C"/>
+      <circle cx="-7" cy="-23" r="4" fill="#D2B48C"/>
+      <circle cx="7" cy="-23" r="4" fill="#D2B48C"/>
+    </g>
+  </g>
+</svg>

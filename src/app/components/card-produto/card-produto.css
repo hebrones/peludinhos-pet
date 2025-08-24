@@ -1,0 +1,70 @@
+.product-card {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #dee2e6;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.price-section {
+  border-top: 1px solid #f8f9fa;
+  padding-top: 0.5rem;
+}
+
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+@media (max-width: 576px) {
+  .card-img-container {
+    height: 150px;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sm {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

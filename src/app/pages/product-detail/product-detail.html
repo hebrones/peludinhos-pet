@@ -1,0 +1,253 @@
+<div class="container py-4">
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="row">
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+        <p class="mt-3 text-muted">🐾 Carregando informações do produto...</p>
+      </div>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error && !loading) {
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-danger text-center" role="alert">
+          <i class="bi bi-exclamation-triangle me-2"></i>
+          {{ error }}
+          <div class="mt-3">
+            <button class="btn btn-primary me-2" (click)="goBack()">
+              <i class="bi bi-arrow-left me-1"></i>
+              Voltar para Início
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Product Details -->
+  @if (product && !loading && !error) {
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/home" class="text-decoration-none">
+            <i class="bi bi-house-door me-1"></i>
+            Início
+          </a>
+        </li>
+        <li class="breadcrumb-item">{{ product.category }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4">
+      <!-- Product Images -->
+      <div class="col-lg-6">
+        <div class="product-images">
+          <!-- Main Image -->
+          <div class="main-image mb-3">
+            <img 
+              [src]="product.images[selectedImageIndex]" 
+              [alt]="product.title"
+              class="img-fluid rounded shadow"
+              style="width: 100%; height: 400px; object-fit: cover;"
+            >
+          </div>
+          
+          <!-- Thumbnail Images -->
+          @if (product.images.length > 1) {
+            <div class="thumbnail-images">
+              <div class="row g-2">
+                @for (image of product.images; track $index) {
+                  <div class="col-3">
+                    <img 
+                      [src]="image" 
+                      [alt]="product.title"
+                      class="img-fluid rounded cursor-pointer thumbnail"
+                      [class.active]="selectedImageIndex === $index"
+                      (click)="selectImage($index)"
+                      style="height: 80px; object-fit: cover;"
+                    >
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="col-lg-6">
+        <div class="product-info">
+          <!-- Title and Brand -->
+          <div class="mb-3">
+            <h1 class="h2 mb-2">{{ product.title }}</h1>
+            <p class="text-muted mb-1">
+              <strong>Marca:</strong> {{ product.brand }}
+            </p>
+            <p class="text-muted">
+              <strong>Categoria:</strong> {{ product.category }}
+            </p>
+          </div>
+
+          <!-- Rating -->
+          <div class="mb-3">
+            <div class="d-flex align-items-center">
+              <div class="stars me-2">
+                @for (star of getStarArray(); track star) {
+                  @if (isStarFilled(star)) {
+                    <i class="bi bi-star-fill text-warning"></i>
+                  } @else if (isStarHalf(star)) {
+                    <i class="bi bi-star-half text-warning"></i>
+                  } @else {
+                    <i class="bi bi-star text-warning"></i>
+                  }
+                }
+              </div>
+              <span class="text-muted">({{ product.rating }}/5)</span>
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-4">
+            @if (product.discountPercentage > 0) {
+              <div class="price-section">
+                <span class="h3 text-success me-2">
+                  {{ getDiscountedPrice() | currency:'BRL':'symbol':'1.2-2' }}
+                </span>
+                <span class="text-muted text-decoration-line-through me-2">
+                  {{ product.price | currency:'BRL':'symbol':'1.2-2' }}
+                </span>
+                <span class="badge bg-danger">
+                  -{{ product.discountPercentage }}%
+                </span>
+              </div>
+            } @else {
+              <span class="h3 text-success">
+                {{ product.price | currency:'BRL':'symbol':'1.2-2' }}
+              </span>
+            }
+          </div>
+
+          <!-- Description -->
+          <div class="mb-4">
+            <h5>Descrição</h5>
+            <p class="text-muted">{{ product.description }}</p>
+          </div>
+
+          <!-- Stock Status -->
+          <div class="mb-4">
+            @if (product.stock > 0) {
+              <div class="alert alert-success" role="alert">
+                <i class="bi bi-check-circle me-2"></i>
+                <strong>Em estoque:</strong> {{ product.stock }} unidades disponíveis
+              </div>
+            } @else {
+              <div class="alert alert-danger" role="alert">
+                <i class="bi bi-x-circle me-2"></i>
+                <strong>Fora de estoque</strong>
+              </div>
+            }
+          </div>
+
+          <!-- Quantity and Add to Cart -->
+          @if (product.stock > 0) {
+            <div class="mb-4">
+              <div class="row g-3 align-items-end">
+                <div class="col-auto">
+                  <label class="form-label">Quantidade:</label>
+                  <div class="input-group" style="width: 140px;">
+                    <button 
+                      class="btn btn-outline-secondary" 
+                      type="button"
+                      (click)="decreaseQuantity()"
+                      [disabled]="quantity <= 1"
+                    >
+                      <i class="bi bi-dash"></i>
+                    </button>
+                    <input 
+                      type="text" 
+                      class="form-control text-center" 
+                      [value]="quantity"
+                      readonly
+                    >
+                    <button 
+                      class="btn btn-outline-secondary" 
+                      type="button"
+                      (click)="increaseQuantity()"
+                      [disabled]="quantity >= product.stock"
+                    >
+                      <i class="bi bi-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="col">
+                  <button 
+                    class="btn btn-primary btn-lg w-100"
+                    (click)="addToCart()"
+                  >
+                    <i class="bi bi-cart-plus me-2"></i>
+                    Adicionar ao Carrinho 🛒
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+
+          <!-- Action Buttons -->
+          <div class="d-flex gap-2">
+            <button class="btn btn-outline-secondary" (click)="goBack()">
+              <i class="bi bi-arrow-left me-1"></i>
+              Voltar
+            </button>
+            <button class="btn btn-outline-primary" routerLink="/checkout">
+              <i class="bi bi-credit-card me-1"></i>
+              Ir para Checkout 🛒
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Reviews Section -->
+    @if (product.reviews && product.reviews.length > 0) {
+      <div class="row mt-5">
+        <div class="col-12">
+          <h4 class="mb-4">Avaliações dos Clientes</h4>
+          <div class="reviews-section">
+            @for (review of product.reviews; track review.date) {
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div>
+                      <h6 class="card-title mb-1">{{ review.reviewerName }}</h6>
+                      <small class="text-muted">{{ review.reviewerEmail }}</small>
+                    </div>
+                    <div class="text-end">
+                      <div class="stars">
+                        @for (star of [1,2,3,4,5]; track star) {
+                          @if (star <= review.rating) {
+                            <i class="bi bi-star-fill text-warning"></i>
+                          } @else {
+                            <i class="bi bi-star text-warning"></i>
+                          }
+                        }
+                      </div>
+                      <small class="text-muted d-block">{{ review.date | date:'dd/MM/yyyy' }}</small>
+                    </div>
+                  </div>
+                  <p class="card-text">{{ review.comment }}</p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

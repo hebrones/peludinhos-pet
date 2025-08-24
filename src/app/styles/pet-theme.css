@@ -1,0 +1,297 @@
+/* Peludinhos PET - Esquema de Cores Azul, Verde e Amarelo */
+
+:root {
+  /* Cores principais */
+  --pet-blue: #007bff;
+  --pet-green: #28a745;
+  --pet-yellow: #ffc107;
+  
+  /* Variações das cores */
+  --pet-blue-light: #66b3ff;
+  --pet-blue-dark: #0056b3;
+  --pet-green-light: #5cb85c;
+  --pet-green-dark: #1e7e34;
+  --pet-yellow-light: #ffdb4d;
+  --pet-yellow-dark: #e0a800;
+  
+  /* Gradientes temáticos */
+  --pet-gradient-primary: linear-gradient(135deg, var(--pet-blue), var(--pet-green));
+  --pet-gradient-secondary: linear-gradient(135deg, var(--pet-green), var(--pet-yellow));
+  --pet-gradient-accent: linear-gradient(135deg, var(--pet-blue), var(--pet-green), var(--pet-yellow));
+}
+
+/* Navbar personalizada */
+.navbar-dark.bg-primary {
+  background: var(--pet-gradient-primary) !important;
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões temáticos */
+.btn-primary {
+  background: var(--pet-gradient-primary);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--pet-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+.btn-success {
+  background: var(--pet-gradient-secondary);
+  border: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.btn-success:hover {
+  background: var(--pet-green-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+/* Cards com tema pet */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  background: var(--pet-gradient-accent);
+  color: white;
+  border-radius: 15px 15px 0 0 !important;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Banner de boas-vindas */
+.alert-info {
+  background: var(--pet-gradient-accent) !important;
+  border: none;
+  border-radius: 20px;
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Preços com destaque */
+.text-success {
+  color: var(--pet-green-dark) !important;
+  font-weight: bold;
+}
+
+/* Badges e elementos de destaque */
+.badge.bg-danger {
+  background: var(--pet-yellow) !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+/* Elementos interativos */
+.form-control:focus {
+  border-color: var(--pet-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Spinner personalizado */
+.spinner-border.text-primary {
+  color: var(--pet-blue) !important;
+}
+
+/* Links de navegação */
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--pet-yellow) !important;
+  transform: scale(1.05);
+}
+
+.nav-link.active {
+  color: var(--pet-yellow) !important;
+  font-weight: bold;
+}
+
+/* Elementos temáticos especiais */
+.pet-paw {
+  color: var(--pet-yellow);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pet-heart {
+  color: var(--pet-green);
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Animações lúdicas para pets */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.2);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+/* Classes para elementos lúdicos */
+.pet-bounce {
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+.pet-heart {
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.pet-paw {
+  display: inline-block;
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+/* Hover effects para cards de categoria */
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card h1 {
+  transition: transform 0.3s ease;
+}
+
+.card:hover h1 {
+  transform: scale(1.2);
+}
+
+/* Responsividade para cores */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Reduzir animações em dispositivos móveis */
+  .pet-bounce, .pet-heart, .pet-paw {
+    animation-duration: 3s;
+  }
+}
+
+/* Efeitos especiais para elementos pet */
+.pet-bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Hover effects para produtos */
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+}
+
+/* Cores para categorias */
+.category-alimentacao {
+  border-left: 4px solid var(--pet-green);
+}
+
+.category-higiene {
+  border-left: 4px solid var(--pet-blue);
+}
+
+.category-acessorios {
+  border-left: 4px solid var(--pet-yellow);
+}
+
+.category-brinquedos {
+  border-left: 4px solid var(--pet-green-light);
+}

@@ -1,0 +1,409 @@
+<div class="container-fluid p-0">
+  <!-- Hero Banner com Carousel -->
+  <section class="hero-banner position-relative overflow-hidden">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+      
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="hero-background">
+            <div class="hero-image hero-image-1">
+              <img src="assets/images/puppy-hero.svg" alt="Cachorrinho fofo" class="img-fluid">
+            </div>
+            <div class="hero-image hero-image-2">
+              <img src="assets/images/cat-dog-hero.svg" alt="Gato e cachorro" class="img-fluid">
+            </div>
+          </div>
+          <div class="hero-overlay"></div>
+          <div class="container position-relative">
+            <div class="row min-vh-75 align-items-center">
+              <div class="col-lg-6">
+                <div class="hero-content text-white">
+                  <h1 class="display-4 fw-bold mb-3">
+                    Bem-vindos à Nossa
+                    <span class="text-warning d-block">Loja Pet</span>
+                  </h1>
+                  <p class="lead mb-4">
+                    Tudo que seu melhor amigo precisa para ser feliz e saudável. 
+                    Produtos de qualidade com muito amor e carinho.
+                  </p>
+                  <div class="hero-features mb-4">
+                    <div class="row g-3">
+                      <div class="col-6 col-md-3">
+                        <div class="feature-item text-center">
+                          <div class="feature-icon mb-2">
+                            <i class="bi bi-truck text-warning fs-3"></i>
+                          </div>
+                          <small>Frete Grátis</small>
+                          <div><small class="text-muted">Acima de R$ 99</small></div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="feature-item text-center">
+                          <div class="feature-icon mb-2">
+                            <i class="bi bi-clock text-warning fs-3"></i>
+                          </div>
+                          <small>Entrega Rápida</small>
+                          <div><small class="text-muted">Em até 24h</small></div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="feature-item text-center">
+                          <div class="feature-icon mb-2">
+                            <i class="bi bi-shield-check text-warning fs-3"></i>
+                          </div>
+                          <small>Compra Segura</small>
+                          <div><small class="text-muted">100% Protegida</small></div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-3">
+                        <div class="feature-item text-center">
+                          <div class="feature-icon mb-2">
+                            <i class="bi bi-heart text-warning fs-3"></i>
+                          </div>
+                          <small>Feito com Amor</small>
+                          <div><small class="text-muted">Para seu Pet</small></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-warning btn-lg px-4 py-3 fw-bold" (click)="showAllProducts()">
+                    <i class="bi bi-bag-heart me-2"></i>
+                    Explorar Produtos
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="hero-background" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="hero-image hero-image-2">
+              <img src="assets/images/cat-hero.svg" alt="Gatinho fofo" class="img-fluid">
+            </div>
+          </div>
+          <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.8) 0%, rgba(245, 87, 108, 0.8) 100%), url('https://blog.petiko.com.br/wp-content/uploads/2014/10/cachorro-comendo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+          <div class="container position-relative">
+            <div class="row min-vh-75 align-items-center">
+              <div class="col-lg-6">
+                <div class="hero-content text-white">
+                  <h1 class="display-4 fw-bold mb-3">
+                    <span class="text-warning">Alimentação</span>
+                    <span class="d-block">Premium 🍖</span>
+                  </h1>
+                  <p class="lead mb-4">
+                    Rações super premium e petiscos saudáveis para 
+                    manter seu pet sempre forte e feliz!
+                  </p>
+                  <button class="btn btn-warning btn-lg px-4 py-3 fw-bold" (click)="filterByCategory('Alimentação')">
+                    <i class="bi bi-cup-straw me-2"></i>
+                    Ver Alimentação
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="hero-background" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <div class="hero-image hero-image-1">
+              <img src="assets/images/puppy-hero.svg" alt="Cachorrinho fofo" class="img-fluid">
+            </div>
+          </div>
+          <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.3) 0%, rgba(0, 242, 254, 0.3) 100%), url('https://caesegatos.com.br/wp-content/uploads/elementor/thumbs/gato-siberiano-brincando-com-seu-brinquedo-gato-fofo-gato-hipoalergenico-1-qxulx8c75ee9rrx3xcj4enbugsl63upbm1x1jhy5xc.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+          <div class="container position-relative">
+            <div class="row min-vh-75 align-items-center">
+              <div class="col-lg-6">
+                <div class="hero-content text-white">
+                  <h1 class="display-4 fw-bold mb-3">
+                    <span class="text-warning">Brinquedos</span>
+                    <span class="d-block">Divertidos 🎾</span>
+                  </h1>
+                  <p class="lead mb-4">
+                    Diversão garantida com brinquedos resistentes 
+                    e seguros para todas as idades!
+                  </p>
+                  <button class="btn btn-warning btn-lg px-4 py-3 fw-bold" (click)="filterByCategory('Brinquedos')">
+                    <i class="bi bi-controller me-2"></i>
+                    Ver Brinquedos
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+  </section>
+
+<div class="container-fluid py-4">
+
+  <!-- Seção de Busca -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <div class="search-section bg-white shadow-sm p-4 rounded-3 border">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="text-center mb-4">
+              <h2 class="fw-bold text-primary mb-2">
+                <i class="bi bi-search text-warning me-2"></i>
+                Encontre o Produto Perfeito
+              </h2>
+              <p class="text-muted">Busque entre centenas de produtos para deixar seu pet ainda mais feliz</p>
+            </div>
+            <div class="input-group input-group-lg shadow-sm">
+              <span class="input-group-text bg-warning border-warning">
+                <i class="bi bi-search text-white"></i>
+              </span>
+              <input 
+                type="text" 
+                class="form-control border-warning" 
+                placeholder="Digite o que procura: ração, brinquedos, acessórios..."
+                [formControl]="searchControl"
+              >
+              @if (searchControl.value) {
+                <button 
+                  class="btn btn-outline-warning" 
+                  type="button"
+                  (click)="clearSearch()"
+                  title="Limpar busca"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              }
+              <button class="btn btn-warning" type="button" (click)="performSearch()">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="row">
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+        <p class="mt-3 text-muted">🐕 Buscando os melhores produtos para seu pet... 🐱</p>
+      </div>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error && !loading) {
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-danger text-center" role="alert">
+          <i class="bi bi-exclamation-triangle me-2"></i>
+          {{ error }}
+          <button 
+            class="btn btn-outline-danger ms-3" 
+            (click)="loadProducts()"
+          >
+            <i class="bi bi-arrow-clockwise me-1"></i>
+            Tentar Novamente
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Products Grid -->
+  @if (!loading && !error) {
+    <!-- Results Info -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">
+            @if (searchControl.value) {
+              Resultados para "{{ searchControl.value }}" ({{ filteredProducts.length }} produtos)
+            } @else {
+              Todos os Produtos ({{ filteredProducts.length }} produtos)
+            }
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    @if (filteredProducts.length === 0) {
+      <div class="row">
+        <div class="col-12 text-center py-5">
+          <i class="bi bi-search display-1 text-muted"></i>
+          <h4 class="mt-3">🐾 Ops! Nenhum produto encontrado</h4>
+          <p class="text-muted">Que tal tentar outros termos? Temos muitas opções para deixar seu pet feliz! 😊</p>
+          @if (searchControl.value) {
+            <button class="btn btn-primary" (click)="clearSearch()">
+              <i class="bi bi-x-circle me-1"></i>
+              Ver Todos os Produtos
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+
+
+    <!-- Products Grid -->
+    @if (filteredProducts.length > 0) {
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="text-center mb-4">
+            <h2 class="fw-bold text-primary mb-2">
+              <i class="bi bi-heart-fill text-danger me-2"></i>
+              Nossos Produtos Especiais
+            </h2>
+            <p class="text-muted">Selecionados com carinho para o bem-estar do seu pet</p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        @for (product of filteredProducts; track product.id) {
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <app-card-produto 
+              [product]="product"
+              (productClick)="onProductClick($event)"
+              (addToCart)="onAddToCart($event)"
+            ></app-card-produto>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Seção de Categorias -->
+    <div class="row mb-5 mt-5 pt-4">
+      <div class="col-12">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold text-primary mb-2">
+            <i class="bi bi-grid-3x3-gap text-warning me-2"></i>
+            Categorias Especiais
+          </h2>
+          <p class="text-muted">Navegue pelas nossas categorias e encontre exatamente o que seu pet precisa</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="category-card h-100 text-center p-4 rounded-3 shadow-sm border-0 bg-gradient" style="background: linear-gradient(135deg, #fff3cd, #ffeaa7); cursor: pointer;" (click)="filterByCategory('Alimentação')">
+              <div class="category-icon mb-3">
+                <i class="bi bi-cup-straw display-4 text-warning"></i>
+              </div>
+              <h5 class="fw-bold text-dark mb-2">Alimentação</h5>
+              <p class="text-muted mb-3">Rações premium, petiscos saudáveis e suplementos</p>
+              <div class="category-stats">
+                <small class="badge bg-warning text-dark">50+ produtos</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="category-card h-100 text-center p-4 rounded-3 shadow-sm border-0 bg-gradient" style="background: linear-gradient(135deg, #d1ecf1, #a8dadc); cursor: pointer;" (click)="filterByCategory('Higiene')">
+              <div class="category-icon mb-3">
+                <i class="bi bi-droplet display-4 text-info"></i>
+              </div>
+              <h5 class="fw-bold text-dark mb-2">Higiene</h5>
+              <p class="text-muted mb-3">Shampoos, condicionadores e produtos de limpeza</p>
+              <div class="category-stats">
+                <small class="badge bg-info text-white">30+ produtos</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="category-card h-100 text-center p-4 rounded-3 shadow-sm border-0 bg-gradient" style="background: linear-gradient(135deg, #f8d7da, #f5c6cb); cursor: pointer;" (click)="filterByCategory('Acessórios')">
+              <div class="category-icon mb-3">
+                <i class="bi bi-gem display-4 text-danger"></i>
+              </div>
+              <h5 class="fw-bold text-dark mb-2">Acessórios</h5>
+              <p class="text-muted mb-3">Coleiras, camas, transportadoras e muito mais</p>
+              <div class="category-stats">
+                <small class="badge bg-danger text-white">40+ produtos</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="category-card h-100 text-center p-4 rounded-3 shadow-sm border-0 bg-gradient" style="background: linear-gradient(135deg, #d4edda, #c3e6cb); cursor: pointer;" (click)="filterByCategory('Brinquedos')">
+              <div class="category-icon mb-3">
+                <i class="bi bi-controller display-4 text-success"></i>
+              </div>
+              <h5 class="fw-bold text-dark mb-2">Brinquedos</h5>
+              <p class="text-muted mb-3">Diversão garantida para todas as idades</p>
+              <div class="category-stats">
+                <small class="badge bg-success text-white">25+ produtos</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Benefícios -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold text-primary mb-2">
+            <i class="bi bi-star-fill text-warning me-2"></i>
+            Por que escolher nossa loja?
+          </h2>
+          <p class="text-muted">Benefícios exclusivos para você e seu pet</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-item text-center p-4">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-truck fa-3x text-primary"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Frete Grátis</h5>
+              <p class="text-muted small mb-0">Em compras acima de R$ 99</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-item text-center p-4">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-clock fa-3x text-success"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Entrega Rápida</h5>
+              <p class="text-muted small mb-0">Receba em até 2 dias úteis</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-item text-center p-4">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-shield-check fa-3x text-warning"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Compra Segura</h5>
+              <p class="text-muted small mb-0">Pagamento 100% protegido</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="feature-item text-center p-4">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-heart fa-3x text-danger"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Amor Garantido</h5>
+              <p class="text-muted small mb-0">Produtos testados e aprovados</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

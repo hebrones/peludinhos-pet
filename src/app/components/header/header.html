@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <i class="bi bi-heart-fill me-2 text-warning heart-easter-egg" 
+         title="💖 Clique para espalhar amor pelos pets! 💖"
+         (mouseenter)="onHeartHover()" 
+         (mouseleave)="onHeartLeave()"
+         (click)="onHeartClick()"></i>
+      🐾 Peludinhos PET
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="bi bi-house-heart me-1"></i>
+            Início
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-grid-3x3-gap me-1"></i>
+            Categorias
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" (click)="filterByCategory('Alimentação')">
+              <i class="fas fa-bone me-2 text-primary"></i>Alimentação
+            </a></li>
+            <li><a class="dropdown-item" href="#" (click)="filterByCategory('Higiene')">
+              <i class="fas fa-bath me-2 text-info"></i>Higiene
+            </a></li>
+            <li><a class="dropdown-item" href="#" (click)="filterByCategory('Acessórios')">
+              <i class="fas fa-tags me-2 text-success"></i>Acessórios
+            </a></li>
+            <li><a class="dropdown-item" href="#" (click)="filterByCategory('Brinquedos')">
+              <i class="fas fa-gamepad me-2 text-warning"></i>Brinquedos
+            </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" (click)="showAllProducts()">
+              <i class="bi bi-list-ul me-2 text-secondary"></i>Todos os Produtos
+            </a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/checkout" routerLinkActive="active">
+            <i class="bi bi-bag-heart me-1"></i>
+            Finalizar Compra
+          </a>
+        </li>
+      </ul>
+      
+      <div class="d-flex align-items-center">
+        <button class="btn btn-outline-light position-relative me-2" type="button" (click)="goToCart()">
+          <i class="bi bi-cart3"></i>
+          Carrinho
+          @if (cartItemCount > 0) {
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{ cartItemCount }}
+              <span class="visually-hidden">itens no carrinho</span>
+            </span>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

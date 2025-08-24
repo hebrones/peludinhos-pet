@@ -1,0 +1,71 @@
+<div class="container-fluid py-4">
+  <!-- Header da Categoria -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="category-header bg-white shadow-sm p-4 rounded-3 border">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-secondary me-3" (click)="goBack()">
+              <i class="bi bi-arrow-left me-2"></i>Voltar
+            </button>
+            <div>
+              <h1 class="h2 mb-1 d-flex align-items-center">
+                <i class="bi {{ getCategoryIcon() }} {{ getCategoryColor() }} me-3 fs-1"></i>
+                {{ category }}
+              </h1>
+              <p class="text-muted mb-0">
+                {{ products.length }} produto{{ products.length !== 1 ? 's' : '' }} encontrado{{ products.length !== 1 ? 's' : '' }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="row">
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando produtos...</span>
+        </div>
+        <p class="mt-3 text-muted">Carregando produtos da categoria {{ category }}...</p>
+      </div>
+    </div>
+  }
+
+  <!-- Produtos da Categoria -->
+  @if (!loading && products.length > 0) {
+    <div class="row g-4">
+      @for (product of products; track product.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <app-card-produto 
+            [product]="product"
+            (productClick)="onProductClick($event)"
+            (addToCart)="onAddToCart($event)"
+          ></app-card-produto>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Estado Vazio -->
+  @if (!loading && products.length === 0) {
+    <div class="row">
+      <div class="col-12 text-center py-5">
+        <div class="empty-state">
+          <i class="bi bi-box-seam display-1 text-muted mb-3"></i>
+          <h3 class="text-muted mb-3">Nenhum produto encontrado</h3>
+          <p class="text-muted mb-4">
+            Não encontramos produtos na categoria "{{ category }}" no momento.
+          </p>
+          <button class="btn btn-primary" (click)="goBack()">
+            <i class="bi bi-house me-2"></i>
+            Voltar à página inicial
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>
